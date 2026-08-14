@@ -1,0 +1,18 @@
+{
+  "name": "npm-sast-test",
+  "version": "1.0.0",
+  "description": "Node.js test project with intentional vulnerabilities for jf audit SAST",
+  "private": true,
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js"
+  },
+  "dependencies": {
+    "express": "4.17.1",
+    "mysql": "2.18.1",
+    "mongodb": "3.6.0",
+    "axios": "0.21.1",
+    "lodash": "4.17.15",
+    "jsonwebtoken": "8.5.1"
+  }
+}
