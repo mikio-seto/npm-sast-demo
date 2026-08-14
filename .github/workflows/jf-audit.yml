@@ -15,7 +15,7 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Setup JFrog CLI
         uses: jfrog/setup-jfrog-cli@v5
@@ -30,4 +30,5 @@ jobs:
         run: |
           jf --version
           jf audit \
-            --sast 
+            --sast \
+            --project=mikios
