@@ -32,4 +32,4 @@ jobs:
           jf --version
           jf audit \
             --sast \
-            --project=mikios
+            --watches=mikios-sast-watch
