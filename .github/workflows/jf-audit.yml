@@ -1,0 +1,33 @@
+name: JFrog Audit (SAST)
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  security-events: write
+  id-token: write
+
+jobs:
+  sast:
+    name: jf audit --sast
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup JFrog CLI
+        uses: jfrog/setup-jfrog-cli@v5
+        env:
+          JF_URL: ${{ vars.JF_URL }}
+          JF_ACCESS_TOKEN: ${{ secrets.JF_ACCESS_TOKEN }}
+
+      - name: Verify JFrog connection
+        run: jf rt ping
+
+      - name: Run jf audit (SAST only)
+        run: |
+          jf --version
+          jf audit \
+            --sast 
